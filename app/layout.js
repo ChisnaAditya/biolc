@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Bio Kampung Inggris LC",
+  title: "Bio | Kampung Inggris LC",
   description: "Jembatan untuk seluruh program di Kampung Inggris LC",
 };
 
