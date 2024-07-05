@@ -118,13 +118,13 @@ export default function Links() {
         />
       </div>
       {console.log(links)}
-      {links.map((item, index) => (
+      {/* {links.map((item, index) => (
         <div key={index}>
           <p>{item.periode}</p>
           <p>{item.title}</p>
           <p>{item.value}</p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }
