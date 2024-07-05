@@ -5,7 +5,7 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 
 export default function Links() {
-  const [links, setLinks] = useState({});
+  const [links, setLinks] = useState([]);
   useEffect(() => {
     const dbRef = ref(db, "links");
     onValue(dbRef, (snapshot) => {
