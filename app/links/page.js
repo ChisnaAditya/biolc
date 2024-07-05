@@ -5,7 +5,7 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 
 export default function Links() {
-  const [links, setLinks] = useState("");
+  const [links, setLinks] = useState({});
   useEffect(() => {
     const dbRef = ref(db, "links");
     onValue(dbRef, (snapshot) => {
@@ -118,13 +118,13 @@ export default function Links() {
         />
       </div>
       {console.log(links)}
-      {/* {links.map((item, index) => (
+      {links.map((item, index) => (
         <div key={index}>
           <p>{item.periode}</p>
           <p>{item.title}</p>
           <p>{item.value}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 }
