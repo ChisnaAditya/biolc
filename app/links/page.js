@@ -5,7 +5,7 @@ import { onValue, ref } from "firebase/database";
 import { db } from "../firebase";
 import LinkCard from "@/components/LinkCard";
 import { useEffect, useState } from "react";
-
+import logolc from "../favicon.ico";
 export default function Links() {
   const [links, setLinks] = useState([]);
 
@@ -89,7 +89,7 @@ export default function Links() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center max-w-6xl mx-auto min-h-screen px-10 ">
+    <div className="flex flex-col items-center justify-between max-w-6xl mx-auto min-h-screen px-10 ">
       {/* <h1 className="text-2xl pb-5">Links to share</h1> */}
       {/* <div className="flex flex-col w-full p-5 rounded-lg shadow-lg bg-slate-100">
         <Tabs
@@ -122,13 +122,18 @@ export default function Links() {
           className="max-w-full mt-5"
         />
       </div> */}
-      <div className="px-2 lg:px-10 w-full ">
-        <div className="flex flex-wrap items-center justify-center gap-4 p-5 rounded-lg shadow-2xl">
-          {links.map((item, index) => (
-            <LinkCard key={index} title={item.title} link={item.link} />
-          ))}
+      <div className="flex flex-col items-center py-10">
+        <img alt="logolc" src={`../favicon.ico`} className="w-[50px]" />
+        <h1>@kampunginggrislc</h1>
+        <div className="px-2 lg:px-10 w-full mt-5">
+          <div className="flex flex-wrap gap-4 p-5 rounded-lg ">
+            {links.map((item, index) => (
+              <LinkCard key={index} title={item.title} link={item.link} />
+            ))}
+          </div>
         </div>
       </div>
+      <p className="py-10">Powered by kampunginggrislc</p>
     </div>
   );
 }

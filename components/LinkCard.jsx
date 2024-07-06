@@ -4,7 +4,6 @@ import { PaperIcon } from "./Icons";
 export default function LinkCard(props) {
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-lg py-2">{props.title}</h2>
       <Snippet
         symbol=""
         variant="shadow"
@@ -16,7 +15,7 @@ export default function LinkCard(props) {
           content: "Open in Google Drive",
         }}
       >
-        Click icon to open
+        {props.title}
       </Snippet>
     </div>
   );
