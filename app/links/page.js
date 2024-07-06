@@ -125,7 +125,7 @@ export default function Links() {
       <div className=" px-10 w-full ">
         <div className="flex flex-wrap gap-4 p-5 rounded-lg shadow-lg bg-slate-100">
           {links.map((item, index) => (
-            <LinkCard cardKey={index} title={item.title} link={item.link} />
+            <LinkCard key={index} title={item.title} link={item.link} />
           ))}
         </div>
       </div>
