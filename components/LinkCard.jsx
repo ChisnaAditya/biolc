@@ -3,8 +3,8 @@ import { Snippet } from "@nextui-org/react";
 import { PaperIcon } from "./Icons";
 export default function LinkCard(props) {
   return (
-    <div key={props.cardKey}>
-      <h2 className="text-md py-2">{props.title}</h2>
+    <div className="flex flex-col items-center">
+      <h2 className="text-lg py-2">{props.title}</h2>
       <Snippet
         symbol=""
         variant="shadow"

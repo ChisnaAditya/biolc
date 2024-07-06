@@ -123,7 +123,7 @@ export default function Links() {
         />
       </div> */}
       <div className=" px-10 w-full ">
-        <div className="flex flex-wrap gap-4 p-5 rounded-lg shadow-lg bg-slate-100">
+        <div className="flex flex-wrap items-center justify-center gap-4 p-5 rounded-lg shadow-lg bg-slate-300">
           {links.map((item, index) => (
             <LinkCard key={index} title={item.title} link={item.link} />
           ))}
