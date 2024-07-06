@@ -1,18 +1,14 @@
 "use client";
+
 import { Tabs, Tab, Snippet, Textarea } from "@nextui-org/react";
 import { onValue, ref } from "firebase/database";
 import { db } from "../firebase";
+import LinkCard from "@/components/LinkCard";
 import { useEffect, useState } from "react";
 
 export default function Links() {
   const [links, setLinks] = useState([]);
-  useEffect(() => {
-    const dbRef = ref(db, "links");
-    onValue(dbRef, (snapshot) => {
-      const data = snapshot.val();
-      setLinks(Object.values(data));
-    });
-  }, []);
+
   let tabs = [
     {
       id: "pare",
@@ -83,10 +79,19 @@ export default function Links() {
       ],
     },
   ];
+
+  useEffect(() => {
+    const dbRef = ref(db, "links");
+    onValue(dbRef, (snapshot) => {
+      const data = snapshot.val();
+      setLinks(Object.values(data));
+    });
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center max-w-6xl mx-auto min-h-screen px-10 ">
       {/* <h1 className="text-2xl pb-5">Links to share</h1> */}
-      <div className="flex flex-col w-full p-5 rounded-lg shadow-lg bg-slate-100">
+      {/* <div className="flex flex-col w-full p-5 rounded-lg shadow-lg bg-slate-100">
         <Tabs
           aria-label="Dynamic tabs"
           size="lg"
@@ -116,15 +121,14 @@ export default function Links() {
           description="You can paste text from Snipet here to ensure it's copied to clipboard."
           className="max-w-full mt-5"
         />
-      </div>
-      {console.log(links)}
-      {links.map((item, index) => (
-        <div key={index}>
-          <p>{item.periode}</p>
-          <p>{item.title}</p>
-          <p>{item.value}</p>
+      </div> */}
+      <div className=" px-10 w-full ">
+        <div className="flex flex-wrap gap-4 p-5 rounded-lg shadow-lg bg-slate-100">
+          {links.map((item, index) => (
+            <LinkCard cardKey={index} title={item.title} link={item.link} />
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
